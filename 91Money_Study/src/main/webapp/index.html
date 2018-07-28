@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跨域访问</title>
+    <script src="jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div>
+    <a href="http://localhost:9099/data" >我是啊A标检</a>
+</div>
+<div>
+    <form action="http://localhost:9099/data">
+        <input type="submit" value="我是form表单">
+    </form>
+</div>
+<button onclick="getw()">ajax请求</button>
+<p></p>
+<div id="dv1">
+    {{message}}
+
+</div>
+<script type="application/javascript">
+    var app = new Vue({
+        el: "#dv1",
+        data: {
+            message: "yyyy"
+        }
+    })
+    function getw() {
+        $.get("http://localhost:9099/data",null,function(obj) {
+            $("p").html(obj.msg);
+            app.message=obj.id+"----->" +obj.msg+"-----" +obj.max
+        });
+    }
+</script>
+
+</body>
+</html>

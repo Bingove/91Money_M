@@ -11,7 +11,13 @@
 
     <artifactId>91Money_UIWeb</artifactId>
     <packaging>war</packaging>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.qfedu</groupId>
+            <artifactId>91Money_Service</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
             <plugin>

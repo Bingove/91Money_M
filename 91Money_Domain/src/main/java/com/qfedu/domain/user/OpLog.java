@@ -1,8 +1,9 @@
 package com.qfedu.domain.user;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class OpLog {
+public class OpLog implements Serializable {
     private Integer id;
 
     private Date createtime;

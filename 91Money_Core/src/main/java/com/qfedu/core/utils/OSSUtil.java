@@ -13,10 +13,10 @@ import java.util.List;
  * 基于阿里云的oss      对象存储
  */
 public class OSSUtil {
-    private String endpoint = "oss-cn-beijing.aliyuncs.com";
-    private String accessKeyId = "LTAIhTvqTSmlmjeQ";
-    private String accessKeySecret = "X7X9w0Ck5GEIWgP9tl0Q6sgmFjQuMv";
-    private String bucketName = "feriteach";
+    private static String endpoint = "oss-cn-beijing.aliyuncs.com";
+    private static String accessKeyId = "LTAIfPDYzpbNLxA9";
+    private static String accessKeySecret = "QZVDJCYT3mVgQjGQXJfMd304ZZ5XX5";
+    private static String bucketName = "bingove";
 
     public OSSUtil(String endpoint, String accessKeyId, String accessKeySecret, String bucketName) {
         this.endpoint = endpoint;

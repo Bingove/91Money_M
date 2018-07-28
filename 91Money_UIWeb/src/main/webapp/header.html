@@ -22,6 +22,7 @@
                                 $(".u1").css("display", "block");
                                 $(".u2").css("display", "none");
                                 $("#ainfo").html(obj.data.username);
+                                $("#uid").val(obj.data.id);
                             } else {
                                 $(".u1").css("display", "none");
                                 $(".u2").css("display", "block");
@@ -30,11 +31,18 @@
                     })
                 }
                 init();
+                function reward(){
+                    location.href="real_auth.html?uid="+$("#uid").val()+"&username="+$("#ainfo").html();
+
+                }
+                reward();
+
             </script>
             <ul class="fn-right header-top-ul">
                 <li> <a href="index.html" class="app">返回首页</a> </li>
                 <li class="u1">
-                    <div class=""><a href="real_auth.html" class="c-orange" title="我的账号" id="ainfo">我的账号</a></div>
+                    <input type="hidden" id="uid">
+                    <div class="" ><a  href="javascript:reward()" class="c-orange" title="我的账号" id="ainfo">我的账号</a></div>
                 </li>
                 <li class="u1">
                     <div ><a href="javascript:loginout()" class="js-login" title="注销">注销</a></div>

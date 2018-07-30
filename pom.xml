@@ -24,6 +24,7 @@
         <module>91Money_Service</module>
         <module>91Money_Provider</module>
         <module>91Money_Controller</module>
+        <module>91Money_AdminService</module>
 
 
     </modules>

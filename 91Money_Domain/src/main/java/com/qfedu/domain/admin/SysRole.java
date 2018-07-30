@@ -1,7 +1,12 @@
 package com.qfedu.domain.admin;
 
 import java.util.Date;
+import java.util.List;
 
+/**
+ *@Author feri
+ *@Date Created in 2018/7/29 23:32
+ */
 public class SysRole {
     private Long roleId;
 
@@ -12,6 +17,15 @@ public class SysRole {
     private Long createUserId;
 
     private Date createTime;
+    private  List<Long> menuIdList;
+
+    public List<Long> getMenuIdList() {
+        return menuIdList;
+    }
+
+    public void setMenuIdList(List<Long> menuIdList) {
+        this.menuIdList = menuIdList;
+    }
 
     public Long getRoleId() {
         return roleId;

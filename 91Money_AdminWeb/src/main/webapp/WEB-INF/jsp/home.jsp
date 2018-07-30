@@ -4,7 +4,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>黑龙汽车道路救援中心救援管理系统</title>
+    <title>91Money后台系统</title>
 	<link rel="shortcut icon" href="${pageContext.request.contextPath}/images/logo.ico">
 
     <link href="${pageContext.request.contextPath}/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,7 +25,7 @@
                         
                     </div>
                     <div class="ibox-content">
-                        <div class="well">欢迎登录容灾系统</div>
+                        <div class="well">欢迎登录91Money</div>
                     </div>
                 </div>
             </div>

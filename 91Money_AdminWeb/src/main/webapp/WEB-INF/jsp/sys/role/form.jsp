@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>容灾管理平台</title>
+<title>91Money平台</title>
 <link rel="shortcut icon" href="images/logo.ico">
 
 <link href="${pageContext.request.contextPath}/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">

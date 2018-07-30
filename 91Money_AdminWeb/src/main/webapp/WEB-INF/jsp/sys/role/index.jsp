@@ -4,12 +4,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
-	<title>容灾管理平台</title>
+	<title>91Money平台</title>
 	<link rel="shortcut icon" href="images/logo.ico">
 	
 	<link href="${pageContext.request.contextPath}/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    
     <!-- bootstrap table -->
 	<link href="${pageContext.request.contextPath}/libs/bootstrap-table/bootstrap-table.min.css" rel="stylesheet" >
 

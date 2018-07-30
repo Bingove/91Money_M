@@ -1,29 +1,28 @@
 package com.qfedu.core.vo;
 
-/**
- * @Author Bingove
- * @Date 2018/7/25 0025 下午 19:33
- */
 public class EmailMsg {
-    private String email;
-    private String title;
-    private String content;
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    public String getTitle() {
-        return title;
-    }
-    public void setTitle(String title) {
-        this.title = title;
-    }
-    public String getContent() {
-        return content;
-    }
-    public void setContent(String content) {
-        this.content = content;
-    }
+
+	private String email;
+	private String title;
+	private String content;
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
+	
 }

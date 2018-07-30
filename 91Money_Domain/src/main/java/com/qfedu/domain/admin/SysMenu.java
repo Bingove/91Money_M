@@ -1,5 +1,11 @@
 package com.qfedu.domain.admin;
 
+import java.util.List;
+
+/**
+ *@Author feri
+ *@Date Created in 2018/7/29 23:32
+ */
 public class SysMenu {
     private Long menuId;
 
@@ -16,6 +22,44 @@ public class SysMenu {
     private String icon;
 
     private Integer orderNum;
+
+    private List<SysMenu> list;
+    private SysMenu parentMenu;
+    private List<SysMenu> children;
+
+    public List<SysMenu> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<SysMenu> children) {
+        this.children = children;
+    }
+
+    public SysMenu getParentMenu() {
+        return parentMenu;
+    }
+
+    public void setParentMenu(SysMenu parentMenu) {
+        this.parentMenu = parentMenu;
+    }
+
+    public List<SysMenu> getList() {
+        return list;
+    }
+
+    public void setList(List<SysMenu> list) {
+        this.list = list;
+    }
+
+    public boolean isOpen() {
+        return open;
+    }
+
+    public void setOpen(boolean open) {
+        this.open = open;
+    }
+
+    private boolean open;
 
     public Long getMenuId() {
         return menuId;

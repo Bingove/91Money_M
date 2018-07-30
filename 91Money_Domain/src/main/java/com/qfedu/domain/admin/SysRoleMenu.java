@@ -1,5 +1,8 @@
 package com.qfedu.domain.admin;
-
+/**
+ *@Author feri
+ *@Date Created in 2018/7/29 23:32
+ */
 public class SysRoleMenu {
     private Long id;
 

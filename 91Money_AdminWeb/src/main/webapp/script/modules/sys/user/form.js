@@ -13,7 +13,6 @@ var vm = new Vue({
     },
     methods: {
         init: function(){
-        	
         	vm.getRoleList();
         	
             if(T.hasP('add')){
@@ -37,9 +36,7 @@ var vm = new Vue({
             });
         },
         saveOrUpdate: function(){
-        	
         	var url = vm.user.userId == null ? 'save' : 'update';
-        	
 			$.ajax({
 				type: 'POST',
 			    url: url,
@@ -62,5 +59,4 @@ var vm = new Vue({
 		}
     }
 });
-
 vm.init();

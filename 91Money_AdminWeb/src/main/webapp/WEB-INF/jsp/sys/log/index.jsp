@@ -1,38 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
-
 <!doctype html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
-	<title>容灾管理平台</title>
+	<title>91Money平台</title>
 	<link rel="shortcut icon" href="images/logo.ico">
-	
 	<link href="${pageContext.request.contextPath}/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    
-    <!-- bootstrap table -->
 	<link href="${pageContext.request.contextPath}/libs/bootstrap-table/bootstrap-table.min.css" rel="stylesheet" >
-
     <link href="${pageContext.request.contextPath}/css/animate.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
-    
-    <!-- 自定义css -->
 	<link href="${pageContext.request.contextPath}/css/my.css" rel="stylesheet">
-	
 </head>
 <body class="my-content">
 	<div id="dtApp" v-cloak>
-		<%-- <div id="toolbar">
-			<shiro:hasPermission name="schedule:joblog:delete">
-		        <button class="btn btn-danger " type="button" @click="deleteBatch">
-					<i class="fa fa-remove"></i>&nbsp;&nbsp;<span class="bold">删除</span>
-		        </button>
-	        </shiro:hasPermission>
-		</div> --%>
-	
 		<table id="table"></table>
 	</div>
 	<!-- 全局js -->

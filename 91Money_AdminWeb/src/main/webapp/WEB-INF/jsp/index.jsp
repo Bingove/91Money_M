@@ -8,7 +8,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>容灾管理系统</title>
+    <title>91Money后台系统</title>
 	<link rel="shortcut icon" href="${pageContext.request.contextPath}/images/logo.ico">
 
     <link href="${pageContext.request.contextPath}/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -65,8 +65,8 @@
                         </ul>
 
                     </li>
-                    <li>
-                        <a href="#">
+                    <li>-->
+                        <!--<a href="#">
                             <i class="fa fa-automobile"></i>
                             <span class="nav-label">系统配置</span>
                             <span class="fa arrow"></span>
@@ -92,7 +92,7 @@
                             </li>
                         </ul>
 
-                    </li>  -->
+                    </li>-->
                     <menu-item v-for="item in menuList" v-bind:item="item"></menu-item>
                 </ul>
             </div>
@@ -174,7 +174,7 @@
                 <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="home" frameborder="0" data-id="home" seamless></iframe>
             </div>
         	<div class="footer">
-                <div class="pull-right">&copy; 2017-2099 <a href="http://www.gp1701.com/" target="_blank">GP1701</a>
+                <div class="pull-right">&copy; 2017-2099 <a href="http://www.91Money.com/" target="_blank">91Money</a>
                 </div>
             </div>
         </div>

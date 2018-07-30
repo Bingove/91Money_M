@@ -34,7 +34,7 @@ document.writeln("                init();");
 document.writeln("                function reward(){");
 document.writeln("                    location.href=\'real_auth.html?uid=\'+$(\'#uid\').val()+\'&username=\'+$(\'#ainfo\').html();");
 document.writeln("                }");
-document.writeln("                reward();");
+document.writeln("                ");
 document.writeln("");
 document.writeln("            </script>");
 document.writeln("            <ul class=\'fn-right header-top-ul\'>");

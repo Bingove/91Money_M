@@ -2,6 +2,7 @@ package com.qfedu.core.vo;
 
 import java.io.Serializable;
 
+
 /**
  * @Author Bingove
  * @Date 2018/7/24 0024 下午 17:56

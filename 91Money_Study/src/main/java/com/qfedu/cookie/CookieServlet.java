@@ -1,5 +1,7 @@
 package com.qfedu.cookie;
 
+
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -14,6 +16,7 @@ import java.io.IOException;
  */
 @WebServlet("/cookie.do")
 public class CookieServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if(req.getParameter("type").equals("r")) {

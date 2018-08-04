@@ -7,6 +7,7 @@ import com.qfedu.core.utils.ExecuteUtil;
 import com.qfedu.core.utils.IdGenerator;
 import com.qfedu.core.vo.R;
 import com.qfedu.domain.user.User;
+import com.qfedu.mapper.user.UserDetailMapper;
 import com.qfedu.mapper.user.UserMapper;
 import com.qfedu.sso.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +29,12 @@ public class UserProvider implements UserService {
     private IdGenerator idGenerator;
     @Autowired
     private JedisUtil jedisUtil;
+    @Autowired
+    private UserDetailMapper detailMapper;
 
     @Override
     public R checkName(String username) {
-        if(mapper.queryByN(username) == null) {
+        if(mapper.queryBy(username) == null) {
             return R.setOk("用户名可用");
         } else {
             return R.setError("用户名已经存在");
@@ -40,17 +43,21 @@ public class UserProvider implements UserService {
 
     @Override
     public R save(User user) {
-        return ExecuteUtil.getR(mapper.insert(user),"新增数据");
+        R r = ExecuteUtil.getR(mapper.insert(user),"新增数据");
+        if(r.getCode()==0) {
+            detailMapper.insert(user.getId());
+        }
+        return r;
     }
 
     @Override
     public List<User> queryPageAll() {
-        return mapper.queryAll(0,100);
+        return mapper.queryPage(0,100);
     }
 
     @Override
     public User queryByName(String name) {
-        return mapper.queryByName(name);
+        return mapper.queryBy(name);
     }
 
     @Override
@@ -81,7 +88,7 @@ public class UserProvider implements UserService {
     @Override
     public R ssoLogin(String name, String password) {
         System.out.println(name + "--------------->" + password);
-        User user = mapper.queryByName(name);
+        User user = mapper.queryBy(name);
         if(user != null) {
             //存在user
             if(Objects.equals(password,user.getPassword())) {

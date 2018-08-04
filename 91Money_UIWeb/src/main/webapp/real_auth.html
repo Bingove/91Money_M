@@ -16,22 +16,19 @@
     <script type="text/javascript" src="script/webuploader-0.1.5/webuploader.min.js"></script>
     <script type="text/javascript" src="script/common.js"></script>
     <script type="text/javascript" src="script/user.js" ></script>
-   <style>
-       .file-item.thumbnail, .file-item.thumbnail image{
-           width: 300px;
-           height: 200px;
-       }
-       .upload-state-done{
-           border: #0fa24e 3px dashed;
-           background-color: rgba(16, 253, 107, 0.16);
-       }
-
-       #uploader-demo1, #uploader-demo2{
-           margin-bottom: 10px;
-       }
-
-
-   </style>
+    <style>
+        .file-item.thumbnail, .file-item.thumbnail image{
+            width: 300px;
+            height: 200px;
+        }
+        .upload-state-done{
+            border: #0fa24e 3px dashed;
+            background-color: rgba(16, 253, 107, 0.16);
+        }
+        #uploader-demo1, #uploader-demo2{
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
 <script src="script/head.js"></script>
@@ -47,7 +44,7 @@
                 <div class="panel-heading">实名认证</div>
                 <div class="panel panel-body">
 
-                    <form class="form-horizontal" id="realAuthForm" method="post" action="http://localhost:9097/userdetail.do" novalidate="novalidate">
+                    <form class="form-horizontal" id="realAuthForm" method="post" action="http://localhost:9092/detailupdate.do" novalidate="novalidate">
                         <fieldset>
                             <div class="form-group">
                                 <p class="text-center text-danger">为保护您账户安全，实名认证成功之后不能修改信息，请认真填写！</p>
@@ -55,8 +52,7 @@
                             <div class="form-group">
                                 <label class="col-sm-4 control-label ">用户名</label>
                                 <div class="col-sm-4">
-                                    <p class="form-control-static" id="un">${logininfo.username }</p>
-                                    <input type="hidden" name="uid" id="uid">
+                                    <p class="form-control-static" id="un">{{username }}</p>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -69,8 +65,8 @@
                                 <label class="col-sm-4  control-label" for="sex">性别</label>
                                 <div class="col-sm-4">
                                     <select id="sex" class="form-control" name="sex" size="1">
-                                        <option value="男">男</option>
-                                        <option value="女">女</option>
+                                        <option value="0">男</option>
+                                        <option value="1">女</option>
                                     </select>
                                 </div>
                             </div>
@@ -109,59 +105,56 @@
                                         <div id="fileList2" class="uploader-list"></div>
                                         <div id="filePicker2">上传身份证反面照片</div>
                                     </div>
-
-
                                     <input type="hidden" name="idimage1" id="uploadImage1" />
                                     <input type="hidden" name="idimage2" id="uploadImage2" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" id="submit" class="btn btn-primary col-sm-offset-4" ><i class="icon-ok"></i> 提交认证</button>
+                                <button type="button"  onclick="updateDetail()" class="btn btn-primary col-sm-offset-4" ><i class="icon-ok"></i> 提交认证</button>
                             </div>
                         </fieldset>
                     </form>
-
                 </div>
             </div>
         </div>
-
         <div class="clear"></div>
     </div>
 </div>
 
 <script src="script/foot.js"></script>
-
-
-<script type="application/javascript">
-
+<script>
     $(function(){
+
         //页面加载传来两个参数 id 以及 username
-        var uid=0;
-        var username="刘强";
+        var uid = 0;
+        var username = "刘强";
+
         function getDate() {
             var sHref = window.location.href;
             //实际情况是用window.location.href得到URL
             console.log(sHref);
             var args = sHref.split("?");
             var retval = "";
-            if(args[0] == sHref) /*参数为空*/ 　{
-                return retval; /*CuPlayer.com提示：无需做任何处理*/
+            if (args[0] == sHref) /*参数为空*/  {
+                return retval;
+                /*CuPlayer.com提示：无需做任何处理*/
             }
             var str = args[1];
             args = str.split("&");
-            for(var i = 0; i < args.length; i++ ) {
+            for (var i = 0; i < args.length; i++) {
                 str = args[i];
                 var arg = str.split("=");
-                if("uid"==arg[0]) {
-                    uid=arg[1];
+                if ("uid" == arg[0]) {
+                    uid = arg[1];
                     console.log(uid + "---uid---");
                 }
-                if(arg[0] == "username") {
+                if (arg[0] == "username") {
                     username = arg[1];
                     console.log(username + "---username---");
                 }
             }
         }
+
         //调用函数
         getDate();
         console.log(username);
@@ -169,17 +162,17 @@
         $("#un").html(username);
         $("#uid").val(uid);
 
-        $('#realAuthForm').ajaxForm(function(obj){
 
-            if(obj.code == 0){
 
-                location.href="real_auth_auditing.html";
+        $('#realAuthForm').ajaxForm(function(r){
+            if(r.code == 0){
+                layer.alert(r.msg, function(){
+                    window.location.reload();
+                })
             }else{
-                layer.alert(obj.msg);
+                layer.alert(r.msg);
             }
         });
-
-
         // 初始化Web Uploader
         var uploader1 = WebUploader.create(getOption('filePicker1'))
             .on( 'fileQueued', function( file ) {
@@ -208,8 +201,9 @@
             return {
                 auto: true,// 选完文件后，是否自动上传。
                 swf: 'script/webuploader-0.1.5/Uploader.swf',// swf文件路径
-                server: 'real_auth_upload',// 文件接收服务端。
-                fileNumLimit: 1,
+                server: 'http://localhost:9092/fileup.do',// 文件接收服务端。
+                fileNumLimit: 1,//一次只能上传一个图片
+                fileVal:'bingove',//自定义文件名
                 pick: {
                     id:'#' + pickId,
                     multiple: false
@@ -246,7 +240,7 @@
         //成功后的页面处理
         function uploadSuccess( file, response, imageInputId ) {
             $( '#'+file.id ).addClass('upload-state-done');
-            $('#' + imageInputId).val(response.url);
+            $('#' + imageInputId).val(response.msg);
         }
 
         //提交前检查
@@ -256,6 +250,18 @@
             }
         }
     })
+    //保存
+    function updateDetail() {
+        var fm=$("#realAuthForm");
+        ajax1(fm.attr("method"),fm.attr("action"),fm.serialize(),function (obj) {
+            if(obj.code==0){
+                location.href="real_auth_auditing.html";
+            }else{
+                layer.msg(obj.msg);
+            }
+
+        })
+    }
 </script>
 </body>
 </html>

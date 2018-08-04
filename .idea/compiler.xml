@@ -9,7 +9,6 @@
         <module name="91Money_AdminService" />
         <module name="91Money_AdminWeb" />
         <module name="91Money_AutoCreate" />
-        <module name="91Money_Controller" />
         <module name="91Money_Core" />
         <module name="91Money_Domain" />
         <module name="91Money_Mapper" />
@@ -25,5 +24,8 @@
         <module name="SSO_Sys2" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="91Money_Controller" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

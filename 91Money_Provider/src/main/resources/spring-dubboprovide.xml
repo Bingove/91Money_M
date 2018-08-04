@@ -6,17 +6,19 @@
 http://code.alibabatech.com/schema/dubbo
 http://code.alibabatech.com/schema/dubbo/dubbo.xsd
 ">
-    <!--1、设置服务名称-->
+<!--
+    &lt;!&ndash;1、设置服务名称&ndash;&gt;
     <dubbo:application name="userdetailprovider"></dubbo:application>
-    <!--2、设置注册中心-->
+    &lt;!&ndash;2、设置注册中心&ndash;&gt;
     <dubbo:registry address="${zk.ip}" protocol="zookeeper" check="false"></dubbo:registry>
-    <!--3、注册协议-->
+    &lt;!&ndash;3、注册协议&ndash;&gt;
     <dubbo:protocol name="dubbo" port="20881"></dubbo:protocol>
     <bean id="userDetailProvider" class="com.qfedu.provider.UserDetailProvider"></bean>
-    <!--4、发布服务-->
+    &lt;!&ndash;4、发布服务&ndash;&gt;
 
     <dubbo:service interface="com.qfedu.service.UserDetailService" ref="userDetailProvider" version="1.0" timeout="3000"></dubbo:service>
 
+-->
 
 
 </beans>

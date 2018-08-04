@@ -31,18 +31,44 @@
                     })
                 }
                 init();
-                function reward(){
-                    location.href="real_auth.html?uid="+$("#uid").val()+"&username="+$("#ainfo").html();
+                function account(){
+   /*                 $.ajax("get","http://localhost:9092/detailinit.do","",function (obj) {
+                        var u;
+                        switch(obj.code){
+                            case 1001:u="real_auth.html?username="+$("#ainfo").html();break;
+                            case 1002:u="real_auth_auditing.html";break;
+                            case 1003:u="real_auth_result.html";break;
+                            case 1004:u="real_auth_error.html";break;
+                        }
+                        location.href=u;
+                    })*/
+                    //location.href="real_auth.html?uid="+$("#uid").val()+"&username="+$("#ainfo").html();
 
+                    $.ajax({
+                        type:"get",
+                        url:"http://localhost:9092/detailinit.do",
+                        date:null,
+                        xhrFields: {withCredentials: true},
+                        success:function (obj) {
+                            var u;
+                            switch(obj.code){
+                                case 1001:u="real_auth.html?username="+$("#ainfo").html();break;
+                                case 1002:u="real_auth_auditing.html";break;
+                                case 1003:u="real_auth_result.html";break;
+                                case 1004:u="real_auth_error.html";break;
+                            }
+                            location.href=u;
+                        }
+                    })
                 }
-               // reward();
+
 
             </script>
             <ul class="fn-right header-top-ul">
                 <li> <a href="index.html" class="app">返回首页</a> </li>
                 <li class="u1">
                     <input type="hidden" id="uid">
-                    <div class="" ><a  href="javascript:reward()" class="c-orange" title="我的账号" id="ainfo">我的账号</a></div>
+                    <div class="" ><a  href="javascript:account()" class="c-orange" title="我的账号" id="ainfo">我的账号</a></div>
                 </li>
                 <li class="u1">
                     <div ><a href="javascript:loginout()" class="js-login" title="注销">注销</a></div>

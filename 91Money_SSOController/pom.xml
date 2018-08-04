@@ -12,6 +12,16 @@
     <artifactId>91Money_SSOController</artifactId>
     <packaging>war</packaging>
     <dependencies>
+        <!--<dependency>
+            <groupId>com.qfedu</groupId>
+            <artifactId>91Money_SSOService</artifactId>
+            <version>1.0.0</version>
+        </dependency>-->
+        <dependency>
+            <groupId>com.qfedu</groupId>
+            <artifactId>91Money_SSOServiceProvider</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         <dependency>
             <groupId>com.qfedu</groupId>
             <artifactId>91Money_SSOService</artifactId>

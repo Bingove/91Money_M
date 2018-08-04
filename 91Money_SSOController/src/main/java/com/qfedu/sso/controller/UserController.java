@@ -69,6 +69,7 @@ public class UserController {
     @GetMapping("/userout.do")
     public R userout(HttpServletRequest request,HttpServletResponse response) {
         String token = CookieUtil.getCk("userauth",request);
+        System.out.println("token------->" + token);
         //return service.userOut(token,response);
         R r = service.userOut(token);
         if(r.getCode() == 0) {

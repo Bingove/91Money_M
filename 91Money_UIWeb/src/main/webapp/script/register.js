@@ -31,9 +31,11 @@ $(document).ready(function() {
             }
         },
         submitHandler:function(form){
+            console.log($("#uid").val());
             if($("#uid").val().length == 0) {
                 $("#uid").val(-1);
             }
+            console.log($("#uid").val());
             sub("registerForm","register1.html");
            /*$(form).ajaxSubmit({
                 type: 'post',

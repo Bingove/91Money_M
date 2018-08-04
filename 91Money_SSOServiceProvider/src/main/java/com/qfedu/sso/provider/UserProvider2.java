@@ -38,12 +38,12 @@ public class UserProvider2 implements UserService2 {
 
     @Override
     public List<User> queryPageAll() {
-        return mapper.queryAll(0,100);
+        return mapper.queryPage(0,100);
     }
 
     @Override
     public User queryByName(String name) {
-        return mapper.queryByName(name);
+        return mapper.queryBy(name);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class UserProvider2 implements UserService2 {
     public R ssoLogin(String name, String password,
                       HttpServletResponse response,HttpSession session) {
         System.out.println(name + "--------------->" + password);
-        User user = mapper.queryByName(name);
+        User user = mapper.queryBy(name);
         if(user != null) {
             //存在user
             if(Objects.equals(password,user.getPassword())) {
@@ -110,7 +110,7 @@ public class UserProvider2 implements UserService2 {
                       HttpServletResponse response, HttpSession session) {
         if(token.length() == 0) {
             //第一次登录
-            User user = mapper.queryByName(name);
+            User user = mapper.queryBy(name);
             if(user != null) {
                 //存在user
                 if(Objects.equals(password,user.getPassword())) {

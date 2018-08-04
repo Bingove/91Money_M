@@ -1,40 +1,35 @@
 package com.qfedu.mapper.user;
 
 import com.qfedu.domain.user.UserDetail;
-import org.apache.ibatis.annotations.*;
-
 import java.util.List;
+
+import org.apache.ibatis.annotations.*;
 
 public interface UserDetailMapper {
 
-    @Insert("insert into t_userdetail (uid, realname, \n" +
-            "      sex, idNumber, birthDate, \n" +
-            "      createtime, flag, address, \n" +
-            "      idimage1, idimage2)\n" +
-            "    values (#{uid,jdbcType=INTEGER}, #{realname,jdbcType=VARCHAR}, \n" +
-            "      #{sex,jdbcType=VARCHAR}, #{idnumber,jdbcType=VARCHAR}, #{birthdate,jdbcType=DATE}, \n" +
-            "      #{createtime,jdbcType=TIMESTAMP}, #{flag,jdbcType=INTEGER}, #{address,jdbcType=LONGVARCHAR}, \n" +
-            "      #{idimage1,jdbcType=LONGVARCHAR}, #{idimage2,jdbcType=LONGVARCHAR})")
-    int insert(UserDetail userDetail);
-    @Delete("delete from t_usedetail where uid=#{uid}")
-    int deleteByPrimaryKey(Integer uid);
-
-    @Update("update t_userdetail\n" +
-            "    set realname = #{realname,jdbcType=VARCHAR},\n" +
-            "      sex = #{sex,jdbcType=VARCHAR},\n" +
-            "      idNumber = #{idnumber,jdbcType=VARCHAR},\n" +
-            "      birthDate = #{birthdate,jdbcType=DATE},\n" +
-            "      createtime = #{createtime,jdbcType=TIMESTAMP},\n" +
-            "      flag = #{flag,jdbcType=INTEGER}\n" +
-            "    where uid = #{uid,jdbcType=INTEGER}}")
-    int updateByPrimaryKey(UserDetail userDetail);
-
-    @Select("select * from t_userdetail where username=#{name}")
+    @Update("update t_userdetail set realname=#{realname},sex=#{sex},idNumber=#{idNumber},birthDate=#{birthdate},address=#{address},idimage1=#{idimage1},idimage2=#{idimage2},flag=1 where uid=#{uid} ")
+    int updateById(UserDetail detail);
+    @Update("update t_userdetail set flag=#{flag} where id=#{id}")
+    int updateId(@Param("flag") int flag,@Param("id") int id);
+    //@Insert("insert into t_userdetail(uid,realname,sex ,idNumber ,birthDate,address,idimage1 ,idimage2,createtime ,flag ) values(#{uid},#{realname},#{sex} ,#{idNumber} ,#{birthDate},#{address},#{idimage1} ,#{idimage2},now() ,0)")
+    @Insert("insert into t_userdetail(uid,realname,sex ,idNumber ,birthDate,address,idimage1 ,idimage2,createtime ,flag ) values(#{uid},null,null ,null ,null,null,null ,null,now() ,0)")
+    @Options(useGeneratedKeys = true,keyProperty ="id")
+    int insert(int uid);
+    @Select("select id ,uid,realname,sex ,idNumber ,birthDate,address,idimage1 ,idimage2,createtime ,flag from t_userdetail where uid=#{uid}")
     @ResultType(UserDetail.class)
-    UserDetail selectByN(String name);
-
-    //查找全部
-    @Select("select * from t_userdetail")
+    UserDetail selectByUid(int uid);
+    @Select("select id ,uid,realname,sex ,idNumber ,birthDate,address,idimage1 ,idimage2,createtime ,flag from t_userdetail where flag=#{flag}")
     @ResultType(UserDetail.class)
-    List<UserDetail> selectAll();
+    List<UserDetail> selectByFlag(int flag);
+
+    @Select("select * from t_userdetail limit #{index},#{count}")
+    @ResultType(UserDetail.class)
+    List<UserDetail> queryByPage(@Param("index") int index, @Param("count") int count);
+    @Select("select count(*) from t_userdetail")
+    @ResultType(Long.class)
+    long queryCount();
+
+
+
+
 }

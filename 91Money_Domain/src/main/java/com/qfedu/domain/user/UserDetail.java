@@ -7,8 +7,35 @@ public class UserDetail implements Serializable {
     private Integer id;
 
     private Integer uid;
+    private String idimage1;
+    private String idimage2;
+
+    public String getIdimage1() {
+        return idimage1;
+    }
+
+    public void setIdimage1(String idimage1) {
+        this.idimage1 = idimage1;
+    }
+
+    public String getIdimage2() {
+        return idimage2;
+    }
+
+    public void setIdimage2(String idimage2) {
+        this.idimage2 = idimage2;
+    }
 
     private String realname;
+    private String address;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     private String sex;
 

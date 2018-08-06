@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.*;
 
 public interface UserDetailMapper {
 
-    @Update("update t_userdetail set realname=#{realname},sex=#{sex},idNumber=#{idNumber},birthDate=#{birthdate},address=#{address},idimage1=#{idimage1},idimage2=#{idimage2},flag=1 where uid=#{uid} ")
+    @Update("update t_userdetail set realname=#{realname},sex=#{sex},idNumber=#{idnumber},birthDate=#{birthdate},address=#{address},idimage1=#{idimage1},idimage2=#{idimage2},flag=1 where uid=#{uid} ")
     int updateById(UserDetail detail);
     @Update("update t_userdetail set flag=#{flag} where id=#{id}")
     int updateId(@Param("flag") int flag,@Param("id") int id);

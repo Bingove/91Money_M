@@ -7,6 +7,8 @@
     <param-value>classpath:spring-*.xml</param-value>
   </context-param>
   <!--监听content 找到content-->
+  <!--用来ServletContext读取相关Spring配置文件， 一
+      般 Dao, Service 的 Spring 配置都会在 listener 里加载。 -->
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--&lt;!&ndash;1、设置服务名称&ndash;&gt;-->
+    <!--<dubbo:application name="ssoprovider"></dubbo:application>-->
+    <!--&lt;!&ndash;2、设置注册中心&ndash;&gt;-->
+    <!--<dubbo:registry address="${zk.ip}" protocol="zookeeper" check="false"></dubbo:registry>-->
+    <!--&lt;!&ndash;3、注册协议&ndash;&gt;-->
+    <!--<dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>-->
+    <!--&lt;!&ndash;4、发布服务&ndash;&gt;-->
+    <!--<dubbo:service interface="com.qfedu.sso.service.UserService" ref="userProvider" version="1.0" timeout="2000"></dubbo:service>-->
+
+</beans>

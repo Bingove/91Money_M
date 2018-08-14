@@ -6,7 +6,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
  * @Author Bingove
  * @Date 2018/8/9 0009 上午 9:31
  */
-@Document(indexName = "91moneynewsd",type = "news")
+@Document(indexName = "91moneynewsd", type = "news")
 public class NewsES {
     private int id;
     private String title;

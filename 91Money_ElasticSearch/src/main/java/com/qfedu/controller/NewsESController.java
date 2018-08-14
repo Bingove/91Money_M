@@ -22,6 +22,7 @@ public class NewsESController {
     @Autowired
     private NewsESService service;
 
+    //json 数据就是从前端获得的，在这里由后台admin查询获得提供
     @PostMapping("newsessave.do")
     public R save(String json) {
         List<News> list = JSON.parseArray(json,News.class);

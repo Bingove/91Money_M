@@ -30,6 +30,10 @@ public class JedisUtil {
     public void addStr(String key,String value){
         jedis.set(key,value);
     }
+    public void addStr(String key,String value,TimeUnit unit,int time){
+        addStr(key,value);
+        expire(key,unit,time);
+    }
     //新增 list
     public void addList(String key,String... values){
         jedis.lpush(key,values);
@@ -63,6 +67,10 @@ public class JedisUtil {
     public void delHash(String key,String... filed){
         jedis.hdel(key,filed);
     }
+   public void addHash(String key,String field,String value) {
+        jedis.hset(key,field,value);
+   }
+
     //修改
     public void updList(String key ,long index,String value){
         jedis.lset(key,index,value);

@@ -21,10 +21,10 @@
 	<!--通过transport方式与ES集群通信,不需要在本地创建节点-->
 	<!--client-transport-sniff表示是否进行自动嗅探ES集群中节点-->
 	<elasticsearch:transport-client id="es.transport.client"
-									cluster-nodes="${cluster-nodes}"
-									cluster-name="${clusterName}"
+									cluster-nodes="${esnodes}"
+									cluster-name="${esclustername}"
 
-									client-transport-sniff="true"/>
+									/>
 
 
 	<!-- spring data elasticsearch DAO 必须依赖 elasticsearchTemplate  -->

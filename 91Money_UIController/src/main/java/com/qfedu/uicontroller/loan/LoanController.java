@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.qfedu.core.vo.LoanVo;
 import com.qfedu.core.vo.R;
 import com.qfedu.domain.loan.Loan;
+import com.qfedu.service.loan.LoanLogService;
 import com.qfedu.service.loan.LoanService;
 import com.qfedu.uicontroller.mq.MqHelp;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ public class LoanController {
     @Autowired
     private MqHelp mqHelp;
 
+
     @PostMapping("/loansave.do")
     public R save(Loan loan) {
         R r = service.save(loan);
@@ -33,6 +35,7 @@ public class LoanController {
             R r1 = new R(1001, "借款成功", loan);
             //发送MQ消息
             mqHelp.sendMsg(JSON.toJSONString(r1));
+
         }
         return r;
     }

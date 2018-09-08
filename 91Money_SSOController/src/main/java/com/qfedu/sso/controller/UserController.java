@@ -30,7 +30,10 @@ public class UserController {
     //保存，注册使用
     @PostMapping("/userregister.do")    // @RequestBody 解析json数据 @ResponseBody 生成json数据
     public R save(User user) {
+      //  R r = service.save(user);
+
         return service.save(user);
+
     }
 
     //查询所有的用户，进行分页查询

@@ -4,6 +4,7 @@ import com.qfedu.core.utils.ExecuteUtil;
 import com.qfedu.core.vo.LoanVo;
 import com.qfedu.core.vo.R;
 import com.qfedu.domain.loan.Loan;
+import com.qfedu.mapper.loan.LoanLogMapper;
 import com.qfedu.mapper.loan.LoanMapper;
 import com.qfedu.service.loan.LoanService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import java.util.List;
 public class LoanServiceImpl implements LoanService {
    @Autowired
    private LoanMapper mapper;
+
     @Override
     public R save(Loan loan) {
         //loan.setMoney(loan.getMoney()*100);
@@ -27,6 +29,7 @@ public class LoanServiceImpl implements LoanService {
         loan.setMinmoney(loan.getMinmoney()*100);
         loan.setRate(loan.getRate()/100);
         return ExecuteUtil.getR(mapper.insert(loan),"添加借款");
+
     }
 
     @Override

@@ -7,9 +7,11 @@ import org.springframework.jms.connection.SingleConnectionFactory;
  * @Date 2018/8/9 0009 下午 20:46
  */
 public class Singleton {
+    //私有化静态的成员变量
     private static Singleton singleton;
     //私有化的构造方法
     private Singleton() {}
+    //静态的成员方法
     public static Singleton getInstance() {
         if (singleton == null) {
             synchronized (Singleton.class) {
